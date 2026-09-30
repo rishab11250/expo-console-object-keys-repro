@@ -1,5 +1,10 @@
 export default function App() {
-  console.log({ name: 'John Doe', age: 25 });
+  const student = {
+    name: "John Doe",
+    age: 25,
+  };
+
+  console.log(student);
 
   return null;
 }

@@ -1,22 +1,27 @@
 # Expo console object keys reproduction
 
-Minimal Expo app reproducing an issue where `console.log()` displays JavaScript object property keys with quotes in the Expo/React Native console.
+Minimal Expo app reproducing an issue where `console.log()` displays JavaScript object property keys with quotes in the Expo/React Native console. The values are correct, but the console representation differs from the standard browser DevTools representation.
 
 ## Issue
 
-The app logs this object:
+The app logs this JavaScript object:
 
 ```js
-{ name: 'John Doe', age: 25 }
+const student = {
+  name: "John Doe",
+  age: 25,
+};
+
+console.log(student);
 ```
 
-Expected/browser-style output:
+Expected/browser-style representation:
 
 ```text
 { name: "John Doe", age: 25 }
 ```
 
-Actual output:
+Observed Expo/React Native representation:
 
 ```text
 { "name": "John Doe", "age": 25 }
@@ -38,7 +43,7 @@ Actual output:
 
 3. Open the project in Expo Go or an Expo development build on Android or iOS.
 4. Inspect the JavaScript/Metro console output. Reload the app if necessary.
-5. Compare the logged object property keys with the expected and actual output above.
+5. Compare the logged object property keys with the expected and observed representations above.
 
 ## Environment
 
